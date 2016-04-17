@@ -20,7 +20,8 @@ public class AnimationPanel extends JComponent implements Runnable {
 	private int currentShapeType, // the current shape type
 		currentPath, 				// the current path type
 		currentWidth = 50,			// the current width of a shape
-		currentHeight = 20;			// the current height of a shape
+		currentHeight = 20,			// the current height of a shape
+		currentPenWidth = 1;		// the current pen width of a shape
 	private Color currentBorderColor = Color.blue;  // the current border colour of a shape
 	private int delay = 30; 		// the current animation speed
 	JPopupMenu popup;				// popup menu
@@ -90,13 +91,13 @@ public class AnimationPanel extends JComponent implements Runnable {
 		MovingShape a;
 		switch (currentShapeType) {
 			case 0: { //rectangle
-				a =  new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentBorderColor,currentPath);
+				a =  new MovingRectangle(x, y, currentPenWidth, currentWidth, currentHeight, marginWidth, marginHeight, currentBorderColor,currentPath);
 				shapeArray.add(a);
 				break;
 			}
 			case 1: { //square
 				int side_len = Math.min(currentWidth, currentHeight);
-				a =  new MovingSquare(x, y, side_len, side_len, marginWidth, marginHeight, currentBorderColor,currentPath);
+				a =  new MovingSquare(x, y, currentPenWidth, side_len, side_len, marginWidth, marginHeight, currentBorderColor,currentPath);
 				shapeArray.add(a);
 				break;
 			}
@@ -161,6 +162,20 @@ public class AnimationPanel extends JComponent implements Runnable {
 			}
 		}
 	}
+	
+	public void setCurrentPenWidth(int pw) {
+		currentPenWidth = pw;
+		
+	/*
+	 * A for loop that checks each shape in the array to see if it is selected and if so, sets its
+	 * path to the current path.
+	 */
+		for (int i = 0; i < shapeArray.size(); i++){
+			if ( shapeArray.get(i).isSelected()) {
+				shapeArray.get(i).setPenWidth(currentPenWidth);
+			}
+		}
+	}
 
 	/** set the current border colour and the border colour for all currently selected shapes
 	 * @param bc	the new border colour value
@@ -193,7 +208,15 @@ public class AnimationPanel extends JComponent implements Runnable {
 	public int getCurrentHeight() {
 		return currentHeight;
 	}
-
+	
+	/**
+	 * get the current pen width
+	 * @return currentPenWidth
+	 */
+	public int getCurrentPenWidth() {
+		return currentPenWidth;
+	}
+	
  	/** remove all shapes from our vector
 	 */
 	public void clearAllShapes() {

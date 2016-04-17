@@ -10,7 +10,7 @@ public class MovingSquare extends MovingRectangle{
 
 	/** constuctor to create a square shape
 	 */
-	public MovingSquare(int x, int y, int w, int h,  int mw, int mh, Color bc, int pathType) {
-		super(x ,y ,w, h ,mw ,mh ,bc, pathType);
+	public MovingSquare(int x, int y, int pw, int w, int h,  int mw, int mh, Color bc, int pathType) {
+		super(x ,y , pw, w, h ,mw ,mh ,bc, pathType);
 	}
 }

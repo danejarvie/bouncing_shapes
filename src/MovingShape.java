@@ -17,11 +17,12 @@ public abstract class MovingShape {
 	protected Color borderColor;		// the border colour of shapes
 	protected boolean selected = false;	// draw handles if selected
 	protected int penWidth;				// the pen width of shapes
+	protected BasicStroke penStroke;			// a stroke object to manage pen width
 
 	/** constuctor to create a shape with default values
 	 */
 	public MovingShape() {
-		this(0, 0, 20, 20, 500, 500, Color.blue, 0); // the default properties
+		this(0, 0, 1, 20, 20, 500, 500, Color.blue, 0); // the default properties
 	}
 
 	/** constuctor to create a shape
@@ -34,8 +35,9 @@ public abstract class MovingShape {
 	 * @param c		the colour of the new shape
 	 * @param typeOfPath 		the path of the new shape
 	 */
-	public MovingShape(int x, int y, int w, int h, int mw, int mh, Color c,  int pathType) {
+	public MovingShape(int x, int y, int pw, int w, int h, int mw, int mh, Color c,  int pathType) {
 		p = new Point(x,y);
+		penWidth = pw;
 		marginWidth = mw;
 		marginHeight = mh;
 		width = w;
@@ -53,6 +55,11 @@ public abstract class MovingShape {
 	 * @return the y coordinate
 	 */
 	public int getY() { return p.y;}
+	
+	/** Set the penWidth of the shape
+	 * @param pw	the penWidth value.
+	 */
+	public void setPenWidth(int pw) {penWidth = pw; }
 
 	/** Return the selected property of the shape.
 	 * @return the selected property

@@ -15,8 +15,8 @@ public class MovingRectangle extends MovingShape {
 
 	/** constuctor to create a rectangle shape
 	 */
-	public MovingRectangle(int x, int y, int w, int h,  int mw, int mh, Color bc, int pathType) {
-		super(x ,y ,w, h ,mw ,mh ,bc, pathType);
+	public MovingRectangle(int x, int y, int pw, int w, int h,  int mw, int mh, Color bc, int pathType) {
+		super(x , y, pw, w, h, mw, mh, bc, pathType);
 	}
 
 	/** draw the rectangle with the fill colour
@@ -25,6 +25,7 @@ public class MovingRectangle extends MovingShape {
 	 */
 	public void draw(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
+		//g2d.setStroke(penStroke);
 		g2d.setPaint(borderColor);
 		g2d.drawRect(p.x, p.y, width, height);
 		drawHandles(g);
