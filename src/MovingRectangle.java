@@ -25,7 +25,7 @@ public class MovingRectangle extends MovingShape {
 	 */
 	public void draw(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
-		//g2d.setStroke(penStroke);
+		g2d.setStroke(new BasicStroke(penWidth));
 		g2d.setPaint(borderColor);
 		g2d.drawRect(p.x, p.y, width, height);
 		drawHandles(g);

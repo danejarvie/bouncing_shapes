@@ -121,12 +121,12 @@ public class A2 extends JFrame {
 				JTextField tf = (JTextField)e.getSource();
 				try {
 					int newValue = Integer.parseInt(tf.getText());
-					if (newValue > 0 && newValue < 10);
-					 	//panel.setCurrentWidth(newValue);
+					if (newValue > 0 && newValue < 21)
+					 	panel.setCurrentPenWidth(newValue);
 					else
-						tf.setText("1"); //Change this to: panel.getCurrentPenWidth()+"" once getCurrentPenWidth is implemented
+						tf.setText(panel.getCurrentPenWidth()+""); //Change this to: panel.getCurrentPenWidth()+"" once getCurrentPenWidth is implemented
 				} catch (Exception ex) {
-					tf.setText("1"); //Change this to: panel.getCurrentPenWidth()+"" once getCurrentPenWidth is implemented
+					tf.setText(panel.getCurrentPenWidth()+""); //Change this to: panel.getCurrentPenWidth()+"" once getCurrentPenWidth is implemented
 				}
 			}
 		});

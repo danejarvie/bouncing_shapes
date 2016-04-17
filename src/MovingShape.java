@@ -17,7 +17,7 @@ public abstract class MovingShape {
 	protected Color borderColor;		// the border colour of shapes
 	protected boolean selected = false;	// draw handles if selected
 	protected int penWidth;				// the pen width of shapes
-	protected BasicStroke penStroke;			// a stroke object to manage pen width
+	
 
 	/** constuctor to create a shape with default values
 	 */
