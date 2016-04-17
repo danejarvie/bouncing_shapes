@@ -29,14 +29,8 @@ public class AnimationPanel extends JComponent implements Runnable {
 	 /** Constructor of the AnimationPanel
 		*/
 	public AnimationPanel() {
-		// remove these lines
 		
 		shapeArray = new ArrayList<MovingShape>(); //Creating the MovingShape arraylist.
-		
-		//Insets insets = getInsets();
-		//int marginWidth = getWidth() - insets.left - insets.right;
-		//int marginHeight = getHeight() - insets.top - insets.bottom;
-		//shapeArray[0] = new MovingRectangle(10, 10, currentWidth, currentHeight, marginWidth, marginHeight, currentBorderColor, currentPath);
 		
 		popup = new JPopupMenu(); //create the popup menu
 		makePopupMenu();
@@ -96,8 +90,14 @@ public class AnimationPanel extends JComponent implements Runnable {
 				break;
 			}
 			case 1: { //square
-				int side_len = Math.min(currentWidth, currentHeight);
+				int side_len = Math.max(currentWidth, currentHeight);
 				a =  new MovingSquare(x, y, currentPenWidth, side_len, side_len, marginWidth, marginHeight, currentBorderColor,currentPath);
+				shapeArray.add(a);
+				break;
+			}
+			case 2: {
+				int side_len = Math.max(currentWidth, currentHeight);
+				a = new MovingImage(x, y, currentPenWidth, side_len, side_len, marginWidth, marginHeight, currentBorderColor,currentPath);
 				shapeArray.add(a);
 				break;
 			}

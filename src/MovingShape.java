@@ -7,6 +7,7 @@
  */
 
 import java.awt.*;
+
 public abstract class MovingShape {
 
 	public int marginWidth, marginHeight; // the margin of the animation panel area
@@ -17,7 +18,6 @@ public abstract class MovingShape {
 	protected Color borderColor;		// the border colour of shapes
 	protected boolean selected = false;	// draw handles if selected
 	protected int penWidth;				// the pen width of shapes
-	
 
 	/** constuctor to create a shape with default values
 	 */

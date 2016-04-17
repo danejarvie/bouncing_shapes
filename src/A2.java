@@ -56,9 +56,11 @@ public class A2 extends JFrame {
 		
 		ImageIcon rectangleButtonIcon = createImageIcon("Rectangle2.gif");
 		ImageIcon squareButtonIcon = createImageIcon("Square2.gif");
+		ImageIcon grumpyCatIcon = createImageIcon("GrumpyCatIcon.jpg");
 		
 		
-		JComboBox<ImageIcon> shapesComboBox = new JComboBox<ImageIcon>(new ImageIcon[] {rectangleButtonIcon, squareButtonIcon} );
+		JComboBox<ImageIcon> shapesComboBox = new JComboBox<ImageIcon>(new ImageIcon[] {rectangleButtonIcon,
+				squareButtonIcon, grumpyCatIcon} );
 		shapesComboBox.setToolTipText("Set shape");
 		shapesComboBox.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
