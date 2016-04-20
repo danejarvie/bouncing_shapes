@@ -199,5 +199,11 @@ public abstract class MovingShape {
 				p.y = 0;
 			}
 	}
+	
+	public class BouncingPath extends MovingPath {
+		
+		
+		public void move(){}
+	}
 
 }

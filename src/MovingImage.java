@@ -15,22 +15,13 @@ public class MovingImage extends MovingShape{
 	
 	public MovingImage(int x, int y, int pw, int w, int h,  int mw, int mh, Color bc, int pathType) {
 		super(x ,y , pw, w, h ,mw ,mh ,bc, pathType);
-		try {
-			img = ImageIO.read(new File("C:\\Users\\Dane\\Documents\\UNI\\Java\\Projects\\CS230 Asst2\\src\\GrumpyCat.jpg"));
-		}
-		catch (IOException e){
-			//e.printStackTrace();
-		}
 	}
 	
-	@Override
 	public boolean contains(Point mousePt) {
 		return (p.x <= mousePt.x && mousePt.x <= (p.x + width + 1)	&&	p.y <= mousePt.y && mousePt.y <= (p.y + height + 1));
-
 	}
 
-	@Override
-	/** draw the rectangle with the fill colour
+	/** draw the image with a width and height equal to max(currentWidth, currentHeight)
 	 *	If it is selected, draw the handles
 	 *	@param g	the Graphics control
 	 */

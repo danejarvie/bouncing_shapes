@@ -57,10 +57,12 @@ public class A2 extends JFrame {
 		ImageIcon rectangleButtonIcon = createImageIcon("Rectangle2.gif");
 		ImageIcon squareButtonIcon = createImageIcon("Square2.gif");
 		ImageIcon grumpyCatIcon = createImageIcon("GrumpyCatIcon.jpg");
+		ImageIcon rectangleButton = createImageIcon("PlusSign2.gif");
+		ImageIcon rotatingSquare = createImageIcon("RotatingSquareIcon.jpg");
 		
 		
 		JComboBox<ImageIcon> shapesComboBox = new JComboBox<ImageIcon>(new ImageIcon[] {rectangleButtonIcon,
-				squareButtonIcon, grumpyCatIcon} );
+				squareButtonIcon, rectangleButton, grumpyCatIcon, rotatingSquare} );
 		shapesComboBox.setToolTipText("Set shape");
 		shapesComboBox.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

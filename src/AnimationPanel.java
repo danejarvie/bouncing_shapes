@@ -95,12 +95,25 @@ public class AnimationPanel extends JComponent implements Runnable {
 				shapeArray.add(a);
 				break;
 			}
-			case 2: {
-				int side_len = Math.max(currentWidth, currentHeight);
-				a = new MovingImage(x, y, currentPenWidth, side_len, side_len, marginWidth, marginHeight, currentBorderColor,currentPath);
+			case 2: { //plus sign
+				//int side_len = Math.max(currentWidth, currentHeight);
+				a = new MovingPlus(x, y, currentPenWidth, currentWidth, currentHeight, marginWidth, marginHeight, currentBorderColor,currentPath);
 				shapeArray.add(a);
 				break;
 			}
+			case 3: { //grumpy cat
+				int side_len = Math.min(currentWidth, currentHeight);
+				a = new MovingGrumpyCat(x, y, currentPenWidth, side_len, side_len, marginWidth, marginHeight, currentBorderColor,currentPath);
+				shapeArray.add(a);
+				break;
+			}
+			case 4: { //rotating square
+				int side_len = Math.min(currentWidth, currentHeight);
+				a = new MovingRotatingSquare(x, y, currentPenWidth, side_len, side_len, marginWidth, marginHeight, currentBorderColor,currentPath);
+				shapeArray.add(a);
+				break;
+			}
+		
 		}
 		
 	}
