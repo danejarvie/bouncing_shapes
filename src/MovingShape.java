@@ -136,8 +136,16 @@ public abstract class MovingShape {
 	 */
 	public void setPath(int pathID) {
 		switch (pathID) {
-			case MovingPath.FALLING : {
+			case MovingPath.FALLING: {
 				path = new FallingPath();
+				break;
+			}
+			case MovingPath.JUMPING: {
+				path = new JumpingPath();
+				break;
+			}
+			case MovingPath.BOUNCING: {
+				path = new BouncingPath();
 				break;
 			}
 		}
@@ -160,6 +168,10 @@ public abstract class MovingShape {
 
 	public abstract class MovingPath {
 		public static final int FALLING = 0; // The Id of the moving path
+		public static final int JUMPING = 1; // The Id of the jumping path
+		public static final int BOUNCING = 2; // The Id of the bouncing path
+		
+		
 		protected int deltaX, deltaY; // moving distance
 
 		/** constructor
@@ -200,10 +212,102 @@ public abstract class MovingShape {
 			}
 	}
 	
+	public class JumpingPath extends MovingPath {
+
+		private double am = 0, sty = 0, sinDeltaY = 0;
+		
+		public JumpingPath(){
+			am = Math.random() * 50; //set amplitude variables
+			sty = 0.5; // This variable is used to toggle the value of sinDeltaY (-1,-0.5,0,0.5,1)
+			deltaX = 10;
+			sinDeltaY = 0;
+		}
+		
+		public void move(){
+			sinDeltaY = sinDeltaY + sty;
+			p.y = (int) Math.round(p.y + am * Math.sin(sinDeltaY));
+			p.x = p.x + deltaX;
+			if (p.x > marginWidth){
+				p.x = 0;
+			}
+		}
+	}
+	
 	public class BouncingPath extends MovingPath {
 		
+		private final int NW = 0, NE = 1, SW = 2, SE = 3;
+		private int direction;
 		
-		public void move(){}
+		public BouncingPath() {
+			deltaX = 10;
+			deltaY = 5;
+			direction = (int)(Math.random()*4);
+		}
+		
+		public void move(){
+			
+			switch (direction) {
+			
+				case 0: { // NW
+					p.x = p.x - deltaX;
+					p.y = p.y - deltaY;
+					if (p.x < 0) {
+						p.x = 0;
+						direction = NE; // Off left margin, now is NE
+					}
+					if (p.y < 0) {
+						p.y = 0;
+						direction = SW; // Off top margin, now is SW
+					}
+					break;
+				}
+				
+				case 1: {
+					p.x = p.x + deltaX;
+					p.y = p.y - deltaY;
+					if (p.x+width > marginWidth) {
+						p.x = marginWidth - width;
+						direction = NW; // Off right margin, now is NW
+					}
+					if (p.y < 0) {
+						p.y = 0;
+						direction = SE; // Off top margin, now is SW
+					}
+					break;
+				}
+			
+				case 2: {
+					p.x = p.x - deltaX;
+					p.y = p.y + deltaY;
+					if (p.x < 0) {
+						p.x = 0;
+						direction = SE; // Off left margin, now is SE
+					}
+					if (p.y+height > marginHeight) {
+						p.y = marginHeight - height;
+						direction = NW; // Off top margin, now is NW
+					}
+					break;
+				}
+				
+				case 3: {
+					p.x = p.x + deltaX;
+					p.y = p.y + deltaY;
+					if (p.x+width > marginWidth) {
+						p.x = marginWidth-width;
+						direction = SW; // Off right margin, now is NW
+					}
+					if (p.y+height > marginHeight) {
+						p.y = marginHeight-height;
+						direction = NE; // Off top margin, now is SW
+					}
+					break;
+				}
+				
+			}
+		}
+		
+		
 	}
 
 }

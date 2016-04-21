@@ -72,13 +72,16 @@ public class A2 extends JFrame {
 			}
 		});
 		//Set up the path combo box
-		ImageIcon fallingButtonIcon = createImageIcon("falling.gif");
-		JComboBox<ImageIcon> pathComboBox = new JComboBox<ImageIcon>(new ImageIcon[] {fallingButtonIcon });
+		ImageIcon fallingButtonIcon = createImageIcon("falling2.gif");
+		ImageIcon jumpingButtonIcon = createImageIcon("jumping.gif");
+		ImageIcon bouncingButtonIcon = createImageIcon("bouncing.gif");
+		
+		JComboBox<ImageIcon> pathComboBox = new JComboBox<ImageIcon>(new ImageIcon[] {fallingButtonIcon, jumpingButtonIcon, bouncingButtonIcon});
 		pathComboBox.setToolTipText("Set Path");
 		pathComboBox.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JComboBox cb = (JComboBox)e.getSource();
-				//set the Current path type based on the selection from combo box: 0 for Boundary Path, 1 for bouncing Path
+				//set the Current path type based on the selection from combo box: 0 for fallingPath, 1 for jumpingPath, 2 for bouncingPath
 				panel.setCurrentPathType(cb.getSelectedIndex());
 			}
 		});
