@@ -1,14 +1,17 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class MovingImage extends MovingShape{
 	
-	protected BufferedImage img = null;
-
+	//protected BufferedImage img = null;
+	protected Image img;
+	
 	public MovingImage(){
 		super();
 	}
@@ -29,7 +32,9 @@ public class MovingImage extends MovingShape{
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setStroke(new BasicStroke(penWidth));
 		g2d.setPaint(borderColor);
-		g2d.drawImage(img, p.x, p.y, width, height,null);
+		//g2d.drawImage(img, p.x, p.y, width, height, null);
+		//ImageObserver observer = true;
+		g2d.drawImage(img, p.x, p.y, width, height, null);
 		drawHandles(g);
 	}
 

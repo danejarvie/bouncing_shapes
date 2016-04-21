@@ -239,16 +239,16 @@ public abstract class MovingShape {
 		private int direction;
 		
 		public BouncingPath() {
-			deltaX = 10;
-			deltaY = 5;
-			direction = (int)(Math.random()*4);
+			deltaX = (int)((Math.random()+0.1)*10); // A random deltaX from 1 to 10.
+			deltaY = (int)((Math.random()+0.1)*10); // A random deltaY from 1 to 10.
+			direction = (int)(Math.random()*4); // A random direction from 0 to 3.
 		}
 		
 		public void move(){
 			
 			switch (direction) {
 			
-				case 0: { // NW
+				case NW: { // NW
 					p.x = p.x - deltaX;
 					p.y = p.y - deltaY;
 					if (p.x < 0) {
@@ -262,7 +262,7 @@ public abstract class MovingShape {
 					break;
 				}
 				
-				case 1: {
+				case NE: {
 					p.x = p.x + deltaX;
 					p.y = p.y - deltaY;
 					if (p.x+width > marginWidth) {
@@ -276,7 +276,7 @@ public abstract class MovingShape {
 					break;
 				}
 			
-				case 2: {
+				case SW: {
 					p.x = p.x - deltaX;
 					p.y = p.y + deltaY;
 					if (p.x < 0) {
@@ -290,7 +290,7 @@ public abstract class MovingShape {
 					break;
 				}
 				
-				case 3: {
+				case SE: {
 					p.x = p.x + deltaX;
 					p.y = p.y + deltaY;
 					if (p.x+width > marginWidth) {

@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class MovingGrumpyCat extends MovingImage {
 
@@ -14,10 +15,14 @@ public class MovingGrumpyCat extends MovingImage {
 		super(x ,y , pw, w, h ,mw ,mh ,bc, pathType);
 		try {
 			img = ImageIO.read(new File("C:\\Users\\Dane\\Documents\\UNI\\Java\\Projects\\CS230 Asst2\\src\\GrumpyCat.jpg"));
+			//img = new ImageIcon("C:\\Users\\Dane\\Documents\\UNI\\Java\\Projects\\CS230 Asst2\\src\\CHDancing.gif").getImage();
 		}
+		
 		catch (IOException e){
-			//e.printStackTrace();
+		 
+			e.printStackTrace();
 		}
+		
 	}
 	
 	

@@ -25,12 +25,14 @@ public class AnimationPanel extends JComponent implements Runnable {
 	private Color currentBorderColor = Color.blue;  // the current border colour of a shape
 	private int delay = 30; 		// the current animation speed
 	JPopupMenu popup;				// popup menu
+	private Image panelImage;
 
 	 /** Constructor of the AnimationPanel
 		*/
 	public AnimationPanel() {
 		
 		shapeArray = new ArrayList<MovingShape>(); //Creating the MovingShape arraylist.
+		panelImage = new ImageIcon("C:\\Users\\Dane\\Documents\\UNI\\Java\\Projects\\CS230 Asst2\\src\\Clouds.jpg").getImage();
 		
 		popup = new JPopupMenu(); //create the popup menu
 		makePopupMenu();
@@ -248,6 +250,7 @@ public class AnimationPanel extends JComponent implements Runnable {
 	 */
 	public void paintComponent(Graphics g) {
 		
+		g.drawImage(panelImage, 0, 0, this.getWidth(), this.getHeight(), null);
 	/*
 	 * A for loop that calls the move() and draw() methods for each moving shape in the
 	 * shapeArray.

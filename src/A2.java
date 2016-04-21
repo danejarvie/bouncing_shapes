@@ -10,7 +10,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-
 import javax.swing.border.*;
 import javax.swing.event.*;
 
@@ -40,7 +39,7 @@ public class A2 extends JFrame {
 			 }
 		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(800, 500);
+		setSize(2000, 1500); // Defaults are 800, 500
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		Dimension frameSize = getSize();
 		setLocation((d.width - frameSize.width) / 2, (d.height - frameSize.height) / 2);
@@ -86,7 +85,7 @@ public class A2 extends JFrame {
 			}
 		});
 		//Set up the height TextField
-		JTextField heightTxt = new JTextField("20");
+		JTextField heightTxt = new JTextField("75"); //Default is 20
 		heightTxt.setToolTipText("Set Height");
 		heightTxt.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -103,7 +102,7 @@ public class A2 extends JFrame {
 			}
 		});
 		//Set up the width TextField
-		JTextField widthTxt = new JTextField("50");
+		JTextField widthTxt = new JTextField("150"); // Default is 20
 		widthTxt.setToolTipText("Set Width");
 		widthTxt.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
