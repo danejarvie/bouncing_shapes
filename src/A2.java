@@ -16,8 +16,9 @@ import javax.swing.event.*;
 
 public class A2 extends JFrame {
 	AnimationPanel panel;  // panel for bouncing area
-	JButton startButton, stopButton;  //buttons to start and stop the animation
-
+	JButton startButton, stopButton, mysteryButton;//buttons to start and stop the animation
+	private int mysteryButtonToggle = 0;
+	
 	/** main method for A2
 	 */
 	public static void main(String[] args) {
@@ -172,6 +173,7 @@ public class A2 extends JFrame {
 	 */
 	public JPanel setUpButtons() {
 		JPanel buttonPanel= new JPanel(new FlowLayout());
+		
 		//Set up the start button
 		startButton = new JButton("Start");
 		startButton.setToolTipText("Start Animation");
@@ -182,6 +184,7 @@ public class A2 extends JFrame {
 				panel.start();  //start the animation
 			}
 		});
+		
 		//Set up the stop button
 		stopButton = new JButton("Stop");
 		stopButton.setToolTipText("Stop Animation");
@@ -193,6 +196,7 @@ public class A2 extends JFrame {
 				panel.stop();
 			 }
 		});
+		
 		// Slider to adjust the speed of the animation
 		JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 200, 30);
 		slider.setToolTipText("Adjust Speed");
@@ -210,10 +214,30 @@ public class A2 extends JFrame {
 		});
 		TitledBorder title = BorderFactory.createTitledBorder("Anim delay = 30 ms");
 		slider.setBorder(title);
+		
+		mysteryButton = new JButton("?");
+		mysteryButton.setToolTipText("I DARE YOU!!!");
+		mysteryButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (mysteryButtonToggle == 0){
+					mysteryButtonToggle = 1;
+					panel.panelImage = new ImageIcon("C:\\Users\\Dane\\Documents\\UNI\\Java\\Projects\\CS230 Asst2\\src\\onepunchman.gif").getImage();
+					panel.repaint();
+				}
+				else {
+					mysteryButtonToggle = 0;
+					panel.panelImage = new ImageIcon("C:\\Users\\Dane\\Documents\\UNI\\Java\\Projects\\CS230 Asst2\\src\\Clouds.jpg").getImage();
+					panel.repaint();
+				}
+			}
+		});
+		
+		
 		// Add buttons and slider control
 		buttonPanel.add(startButton);
 		buttonPanel.add(stopButton);
 		buttonPanel.add(slider);
+		buttonPanel.add(mysteryButton);
 		return buttonPanel;
 	}
 

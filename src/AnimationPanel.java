@@ -25,7 +25,7 @@ public class AnimationPanel extends JComponent implements Runnable {
 	private Color currentBorderColor = Color.blue;  // the current border colour of a shape
 	private int delay = 30; 		// the current animation speed
 	JPopupMenu popup;				// popup menu
-	private Image panelImage;
+	public Image panelImage;
 
 	 /** Constructor of the AnimationPanel
 		*/
