@@ -1,4 +1,7 @@
-/*
+/*	Dane Jarvie
+ * 	UPI: djar004
+ * 	ID: 2521969
+ *
  *	===============================================================================
  *	MovingRectangle.java : A shape that is a rectangle.
  *	A rectangle has 4 handles shown when it is selected (by clicking on it).
@@ -15,7 +18,7 @@ public class MovingRectangle extends MovingShape {
 
 	/** constuctor to create a rectangle shape
 	 */
-	public MovingRectangle(int x, int y, int pw, int w, int h,  int mw, int mh, Color bc, int pathType) {
+	public MovingRectangle(int x, int y, float pw, int w, int h,  int mw, int mh, Color bc, int pathType) {
 		super(x , y, pw, w, h, mw, mh, bc, pathType);
 	}
 

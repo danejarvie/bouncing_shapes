@@ -1,3 +1,8 @@
+/*	Dane Jarvie
+ * 	UPI: djar004
+ * 	ID: 2521969
+ */
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -10,7 +15,7 @@ public class MovingPlus extends MovingPolygon {
 		super();
 	}
 	
-	public MovingPlus(int x, int y, int pw, int w, int h,  int mw, int mh, Color bc, int pathType){
+	public MovingPlus(int x, int y, float pw, int w, int h,  int mw, int mh, Color bc, int pathType){
 		super(x , y, pw, w, h, mw, mh, bc, pathType);
 	}
 	

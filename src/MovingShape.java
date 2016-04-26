@@ -1,4 +1,7 @@
-/*
+/*	Dane Jarvie
+ * 	UPI: djar004
+ * 	ID: 2521969
+ *
  *	===============================================================================
  *	MovingShape.java : The superclass of all shapes.
  *	A shape has a point (top-left corner).
@@ -7,6 +10,7 @@
  */
 
 import java.awt.*;
+import java.util.Random;
 
 public abstract class MovingShape {
 
@@ -17,7 +21,9 @@ public abstract class MovingShape {
 	protected MovingPath path;			// the moving path of shapes
 	protected Color borderColor;		// the border colour of shapes
 	protected boolean selected = false;	// draw handles if selected
-	protected int penWidth;				// the pen width of shapes
+	protected float penWidth;				// the pen width of shapes
+	
+	public static Random shapeRandInt = new Random();
 
 	/** constuctor to create a shape with default values
 	 */
@@ -35,7 +41,7 @@ public abstract class MovingShape {
 	 * @param c		the colour of the new shape
 	 * @param typeOfPath 		the path of the new shape
 	 */
-	public MovingShape(int x, int y, int pw, int w, int h, int mw, int mh, Color c,  int pathType) {
+	public MovingShape(int x, int y, float pw, int w, int h, int mw, int mh, Color c,  int pathType) {
 		p = new Point(x,y);
 		penWidth = pw;
 		marginWidth = mw;
@@ -59,8 +65,14 @@ public abstract class MovingShape {
 	/** Set the penWidth of the shape
 	 * @param pw	the penWidth value.
 	 */
-	public void setPenWidth(int pw) {penWidth = pw; }
-
+	public void setPenWidth(float pw) {penWidth = pw; }
+	
+	/**
+	 * Get the penWidth of the shape.
+	 * @return	penWidth the penWidth value.
+	 */
+	public float setPenWidth() { return penWidth; }
+	
 	/** Return the selected property of the shape.
 	 * @return the selected property
 	 */
@@ -217,7 +229,7 @@ public abstract class MovingShape {
 		private double am = 0, sty = 0, sinDeltaY = 0;
 		
 		public JumpingPath(){
-			am = Math.random() * 50; //set amplitude variables
+			am = Math.random() * 40; //set amplitude variables
 			sty = 0.5; // This variable is used to toggle the value of sinDeltaY (-1,-0.5,0,0.5,1)
 			deltaX = 10;
 			sinDeltaY = 0;
@@ -239,9 +251,9 @@ public abstract class MovingShape {
 		private int direction;
 		
 		public BouncingPath() {
-			deltaX = (int)((Math.random()+0.1)*10); // A random deltaX from 1 to 10.
-			deltaY = (int)((Math.random()+0.1)*10); // A random deltaY from 1 to 10.
-			direction = (int)(Math.random()*4); // A random direction from 0 to 3.
+			deltaX = shapeRandInt.nextInt(11); // A random deltaX from 1 to 10.
+			deltaY = shapeRandInt.nextInt(11); // A random deltaY from 1 to 10.
+			direction = shapeRandInt.nextInt(4); // A random direction from 0 to 3.
 		}
 		
 		public void move(){

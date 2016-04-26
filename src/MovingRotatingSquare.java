@@ -1,3 +1,15 @@
+/*	Dane Jarvie
+ * 	UPI: djar004
+ * 	ID: 2521969
+ * 
+ * ======================================================================
+ *	MovingRotatingSquare.java : An extension of MovingSquare.  Uses AffineTransform
+ *	to create an array of Rectangle Shape objects (with same width and height) with
+ *	each rotated a set amount.  The draw method draws each Shape object in the array
+ *	on top of one another to create the look of a MovingRotatingSquare object.
+ *	======================================================================
+ */
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -15,7 +27,7 @@ public class MovingRotatingSquare extends MovingSquare{
 		super();
 	}
 
-	public MovingRotatingSquare(int x, int y, int pw, int w, int h, int mw, int mh, Color bc, int pathType) {
+	public MovingRotatingSquare(int x, int y, float pw, int w, int h, int mw, int mh, Color bc, int pathType) {
 		super(x, y, pw, w, h, mw, mh, bc, pathType);
 		tx = new AffineTransform();
 	}

@@ -1,3 +1,13 @@
+/*	Dane Jarvie
+ * 	UPI: djar004
+ * 	ID: 2521969
+ * 
+ * ======================================================================
+ *	MovingImage.java : An extension of MovingShape and the superclass for all
+ *	image based objects, ie MovingGrumpyCat and MovingHomer.
+ *	======================================================================
+ */
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
@@ -9,14 +19,13 @@ import javax.swing.ImageIcon;
 
 public class MovingImage extends MovingShape{
 	
-	//protected BufferedImage img = null;
 	protected Image img;
 	
 	public MovingImage(){
 		super();
 	}
 	
-	public MovingImage(int x, int y, int pw, int w, int h,  int mw, int mh, Color bc, int pathType) {
+	public MovingImage(int x, int y, float pw, int w, int h,  int mw, int mh, Color bc, int pathType) {
 		super(x ,y , pw, w, h ,mw ,mh ,bc, pathType);
 	}
 	

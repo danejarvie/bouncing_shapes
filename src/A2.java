@@ -1,4 +1,7 @@
-/*
+/*	Dane Jarvie
+ * 	UPI: djar004
+ * 	ID: 2521969
+ *
  *  =============================================================
  *  A2.java : Extends JFrame and contains a panel where
  *  shapes move around on the screen. Also contains start and stop
@@ -6,6 +9,7 @@
  *  ==============================================================
  */
 
+import javax.sound.sampled.Line; 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -17,7 +21,10 @@ import javax.swing.event.*;
 public class A2 extends JFrame {
 	AnimationPanel panel;  // panel for bouncing area
 	JButton startButton, stopButton, mysteryButton;//buttons to start and stop the animation
+	/* A variable to define the current background image; 0 for clouds, 1 for onePunchMan. Each
+	 * time the mysteryButton is clicked it toggles to switch the background image.*/
 	private int mysteryButtonToggle = 0;
+	
 	
 	/** main method for A2
 	 */
@@ -59,10 +66,11 @@ public class A2 extends JFrame {
 		ImageIcon grumpyCatIcon = createImageIcon("GrumpyCatIcon.jpg");
 		ImageIcon rectangleButton = createImageIcon("PlusSign2.gif");
 		ImageIcon rotatingSquare = createImageIcon("RotatingSquareIcon.jpg");
+		ImageIcon homerIcon = createImageIcon("homerIcon.jpg");
 		
 		
 		JComboBox<ImageIcon> shapesComboBox = new JComboBox<ImageIcon>(new ImageIcon[] {rectangleButtonIcon,
-				squareButtonIcon, rectangleButton, grumpyCatIcon, rotatingSquare} );
+				squareButtonIcon, rectangleButton, grumpyCatIcon, rotatingSquare, homerIcon} );
 		shapesComboBox.setToolTipText("Set shape");
 		shapesComboBox.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -127,7 +135,7 @@ public class A2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JTextField tf = (JTextField)e.getSource();
 				try {
-					int newValue = Integer.parseInt(tf.getText());
+					float newValue = Float.parseFloat(tf.getText());
 					if (newValue > 0 && newValue < 21)
 					 	panel.setCurrentPenWidth(newValue);
 					else
@@ -222,11 +230,14 @@ public class A2 extends JFrame {
 				if (mysteryButtonToggle == 0){
 					mysteryButtonToggle = 1;
 					panel.panelImage = new ImageIcon("C:\\Users\\Dane\\Documents\\UNI\\Java\\Projects\\CS230 Asst2\\src\\onepunchman.gif").getImage();
+					panel.opClip.loop(0);
 					panel.repaint();
+					
 				}
 				else {
 					mysteryButtonToggle = 0;
 					panel.panelImage = new ImageIcon("C:\\Users\\Dane\\Documents\\UNI\\Java\\Projects\\CS230 Asst2\\src\\Clouds.jpg").getImage();
+					panel.opClip.stop();
 					panel.repaint();
 				}
 			}
