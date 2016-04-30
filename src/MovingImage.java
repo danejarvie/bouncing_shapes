@@ -3,8 +3,12 @@
  * 	ID: 2521969
  * 
  * ======================================================================
- *	MovingImage.java : An extension of MovingShape and the superclass for all
- *	image based objects, ie MovingGrumpyCat and MovingHomer.
+ *	MovingImage.java : An extension of MovingSquare and the superclass for all
+ *	image based objects, ie MovingGrumpyCat and MovingHomer.  I have extended
+ *	MovingSquare here to keep the aspect ratio of these two sqaure images the same.
+ *	A better implementation would be to over-ride the setWidth and setHeight
+ *	methods to allow for rectangular images but still maintaining aspect ratio
+ *	when re-sizing.
  *	======================================================================
  */
 
@@ -17,7 +21,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-public class MovingImage extends MovingShape{
+public class MovingImage extends MovingSquare{
 	
 	protected Image img;
 	
@@ -41,9 +45,7 @@ public class MovingImage extends MovingShape{
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setStroke(new BasicStroke(penWidth));
 		g2d.setPaint(borderColor);
-		//g2d.drawImage(img, p.x, p.y, width, height, null);
-		//ImageObserver observer = true;
-		g2d.drawImage(img, p.x, p.y, width, height, null);
+		g2d.drawImage(img, p.x, p.y, side_len, side_len, null);
 		drawHandles(g);
 	}
 

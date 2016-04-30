@@ -1,0 +1,29 @@
+
+Name: Dane Jarvie
+Login: djar004
+ID: 2521969
+
+How much time did the assignment take overall?
+The base part of the assignment probably took about 5 hours.  I probably spent another 5-8hrs on the extra
+features I added such as the background image and sound clips.
+
+What areas did I find easy?
+Parts 2, 3a, and 4 I found to be relatively easy.  They required adding similar functionality to what was
+already present in the template.
+
+What areas did I find difficult?
+Parts 3b, and 3c (and Part 1 to a certain extent) were trickier as they required research into classes outside
+the scope of our lecture content.  Part 3c was the most difficult.  The technique I used was to use an
+AffineTransform to rotate the square shapes.  It took a while to get my head around what an AffineTransform is
+and how it should be used.
+
+Which topics of the course did the assignment most help you understand?
+Definitely the concepts of Inheritance and Variable Scope.  The usage of superclasses and subclasses with
+protected instance variables was really instructive.
+
+Any other comments you would like to make.
+This was a good assignment and I feel practised for having done it.  What it could have included more detail
+around was anonymous classes and the use of EventListeners.  It would have been good to have had a question
+that required us to create a widget that did not already have precedence in the template and to add an
+appropriate Listener to it.  That would have required us to write some Listener code from scratch.
+

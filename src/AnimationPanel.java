@@ -25,7 +25,6 @@ public class AnimationPanel extends JComponent implements Runnable {
 	
 	public ArrayList<MovingShape> shapeArray; //Declaring the MovingShape arraylist to store the shapes.
 	
-	//private MovingShape s;		// the MovingShape object
 	private int currentShapeType, 	// the current shape type
 		currentPath, 				// the current path type
 		currentWidth = 50,			// the current width of a shape
@@ -51,13 +50,14 @@ public class AnimationPanel extends JComponent implements Runnable {
 	public ArrayList<String> clipNameArray;
 	public ArrayList<Clip> clipArray;
 	
-	
+	/**
+	 * A method used to create a clip object from a .wav audio file.
+	 * @param filename	A String representing the file name of the audio clip
+	 * @return tempClip	The created Clip object
+	 */
 	public Clip setupClip(String filename){
 		Mixer.Info[] mixInfos = AudioSystem.getMixerInfo();
-		/*for (Mixer.Info info : mixInfos){
-			System.out.println(info.getName() + " --- " + info.getDescription());
-		}*/
-		mixer = AudioSystem.getMixer(mixInfos[1]); // 0 for Primary Sound Driver, try 1 for Speakers (Realtek HDA)
+		mixer = AudioSystem.getMixer(mixInfos[0]); // 0 for Primary Sound Driver, try 1 for Speakers (Realtek HDA)
 		DataLine.Info dataInfo = new DataLine.Info(Clip.class, null);
 		try { tempClip = (Clip)mixer.getLine(dataInfo); }
 		catch(LineUnavailableException lue) { lue.printStackTrace(); }
@@ -72,6 +72,9 @@ public class AnimationPanel extends JComponent implements Runnable {
 		return tempClip;
 	}
 	
+	/**
+	 * A method that builds an array of clip objects.
+	 */
 	public void buildClipArray() {
 		clipNameArray = new ArrayList<String>();
 		clipArray = new ArrayList<Clip>();
@@ -80,9 +83,8 @@ public class AnimationPanel extends JComponent implements Runnable {
 		clipNameArray.add("boring.wav");
 		
 		for (String fName : clipNameArray){
-			//System.out.println(fName);
 			clipArray.add(setupClip(fName));
-			//System.out.println(clipArray.get(0));
+			
 		}
 	}
 	//************************************************************************************** 
@@ -95,7 +97,7 @@ public class AnimationPanel extends JComponent implements Runnable {
 		shapeArray = new ArrayList<MovingShape>(); //Creating the MovingShape arraylist.
 		
 		randInt = new Random();
-		panelImage = new ImageIcon("C:\\Users\\Dane\\Documents\\UNI\\Java\\Projects\\CS230 Asst2\\src\\Clouds.jpg").getImage(); // The default background image.
+		panelImage = new ImageIcon("src\\Clouds.jpg").getImage(); // The default background image.
 		opClip = setupClip("onePunch.wav"); // The audio clip for the OnePunchMan background.
 		buildClipArray(); // The array of audio clips to use when creating new MovingHomer objects.
 		

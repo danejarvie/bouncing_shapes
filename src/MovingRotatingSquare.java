@@ -34,7 +34,7 @@ public class MovingRotatingSquare extends MovingSquare{
 	
 	public Shape[] createRotatingSquare(int x, int y, int sideLen, AffineTransform tx){
 		rotatingSquare[0] = new Rectangle(x, y, sideLen, sideLen); //Create the initial square shape
-		tx.setToRotation(30, x+(sideLen/2), y+(sideLen/2)); //Set the transformation to a rotation on the centre of the shape
+		tx.setToRotation(Math.toRadians(9), x+(sideLen/2), y+(sideLen/2)); //Set the transformation to a rotation on the centre of the shape
 		for (int i = 1; i < rotatingSquare.length; i++){
 			//Fill the shape array with square shapes each rotated via the transformation
 			rotatingSquare[i] = tx.createTransformedShape(rotatingSquare[i-1]);
@@ -47,10 +47,11 @@ public class MovingRotatingSquare extends MovingSquare{
 	 *	@param g	the Graphics control
 	 */
 	public void draw(Graphics g) {
+		//int side = Math.min(width, height);
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setStroke(new BasicStroke(penWidth));
 		g2d.setPaint(borderColor);
-		createRotatingSquare(p.x, p.y, width, tx);
+		createRotatingSquare(p.x, p.y, side_len, tx);
 		for (int i = 0; i < rotatingSquare.length; i++){
 			g2d.draw(rotatingSquare[i]);
 		}

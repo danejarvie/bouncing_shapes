@@ -23,7 +23,7 @@ public abstract class MovingShape {
 	protected boolean selected = false;	// draw handles if selected
 	protected float penWidth;				// the pen width of shapes
 	
-	public static Random shapeRandInt = new Random();
+	public static Random shapeRandInt = new Random(); // A random integer generator
 
 	/** constuctor to create a shape with default values
 	 */
@@ -224,12 +224,18 @@ public abstract class MovingShape {
 			}
 	}
 	
+	
+	/*
+	 *	===============================================================================
+	 *	JumpingPath : A jumping path. A horizontal implementation of the FallingPath.
+	 *	===============================================================================
+	 */
 	public class JumpingPath extends MovingPath {
 
 		private double am = 0, sty = 0, sinDeltaY = 0;
 		
 		public JumpingPath(){
-			am = Math.random() * 40; //set amplitude variables
+			am = Math.random() * 20; //set amplitude variables
 			sty = 0.5; // This variable is used to toggle the value of sinDeltaY (-1,-0.5,0,0.5,1)
 			deltaX = 10;
 			sinDeltaY = 0;
@@ -245,6 +251,12 @@ public abstract class MovingShape {
 		}
 	}
 	
+	/*
+	 *	===============================================================================
+	 *	BouncingPath : A bouncing path that makes shapes bounce off the margins of the
+	 *	animationPanel.
+	 *	===============================================================================
+	 */
 	public class BouncingPath extends MovingPath {
 		
 		private final int NW = 0, NE = 1, SW = 2, SE = 3;

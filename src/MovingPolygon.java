@@ -1,6 +1,12 @@
 /*	Dane Jarvie
  * 	UPI: djar004
  * 	ID: 2521969
+ * 
+ *  ===============================================================================
+ *	MovingPolygon.java : A superclass for MovingPolygon type shapes.
+ *	Uses a GeneralPath object to define a polygon and provides draw and contains
+ *	methods to match.
+ *	===============================================================================
  */
 
 import java.awt.*;
@@ -9,7 +15,6 @@ import java.awt.geom.GeneralPath;
 public class MovingPolygon extends MovingRectangle {
 	
 	protected GeneralPath polygon;
-	
 	
 	public MovingPolygon(){
 		super();

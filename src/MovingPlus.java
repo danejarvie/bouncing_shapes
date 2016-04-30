@@ -1,6 +1,11 @@
 /*	Dane Jarvie
  * 	UPI: djar004
  * 	ID: 2521969
+ * 
+ *  ===============================================================================
+ *	MovingPlus.java: An extension of MovingPolygon that is a GeneralPath object that
+ *	is defined as a plus or cross.
+ *	===============================================================================
  */
 
 import java.awt.BasicStroke;

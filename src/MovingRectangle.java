@@ -7,7 +7,9 @@
  *	A rectangle has 4 handles shown when it is selected (by clicking on it).
  *	===============================================================================
  */
+
 import java.awt.*;
+
 public class MovingRectangle extends MovingShape {
 
 	/** constuctor to create a rectangle with default values
